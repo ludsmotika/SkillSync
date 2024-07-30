@@ -6,7 +6,6 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import * as requestService from '../../services/requestsService';
 import { useTranslation } from "react-i18next";
-import { LanguageSelector } from "../LanguageSelector/LanguageSelector";
 
 let cx = classNames.bind(styles);
 

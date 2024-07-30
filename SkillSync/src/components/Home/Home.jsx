@@ -3,7 +3,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { ImageSlider } from "../ImageSlider/ImageSlider";
 import classNames from 'classnames/bind';
 import homeStyles from './Home.module.css';
-//import { getProfilePictureByEmail } from '../../services/userService';
+import { getProfilePictureByEmail } from '../../services/userService';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { LanguageSelector } from "../LanguageSelector/LanguageSelector";
@@ -23,13 +23,13 @@ export const Home = () => {
 
     const [urlPicture, setUrlPicture] = useState('');
 
-    // useEffect(() => {
-    //     if (currentUser) {
-    //         getProfilePictureByEmail(currentUser.email)
-    //             .then(res => setUrlPicture(res))
-    //             .catch(err => console.log(err));
-    //     }
-    // });
+    useEffect(() => {
+        if (currentUser) {
+            getProfilePictureByEmail(currentUser.email)
+                .then(res => setUrlPicture(res))
+                .catch(err => console.log(err));
+        }
+    });
 
     const slides = [
         { url: "https://firebasestorage.googleapis.com/v0/b/fmi-codes-a71a1.appspot.com/o/images%2FfmiEnter.jpeg?alt=media&token=a97ef0d3-641e-4ccd-9abd-77ed33159ff5", title: "fmi enter" },

@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Home } from './components/Home/Home';
 // import { Forum } from './components/Forum/Forum';
-// import { Header } from './components/Header/Header';
+import { Header } from './components/Header/Header';
 import { AuthProvider } from './contexts/AuthContext';
 // import { ChatRoom } from "./components/ChatRoom/ChatRoom";
 //import { Login } from "./components/FormComponents/Login/Login";
@@ -19,7 +19,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import translationsEn from './infrastructureUtils/translation/translationsEn.json'
 import translationsBg from './infrastructureUtils/translation/translationsBg.json'
-// import { EventsProvider } from "./contexts/EventsContext.jsx";
+import { EventsProvider } from "./contexts/EventsContext.jsx";
 // import { Requests } from "./components/Requests/Requests.jsx";
 // import { AcceptRequest } from "./components/FormComponents/AcceptRequest/AcceptRequest.jsx";
 // import { EditTopic } from "./components/FormComponents/EditTopic/EditTopic.jsx";
@@ -86,4 +86,4 @@ function App() {
     );
 }
 
-export default App
+export default App;

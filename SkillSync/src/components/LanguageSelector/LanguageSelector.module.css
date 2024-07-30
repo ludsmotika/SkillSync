@@ -1,0 +1,47 @@
+.slideThree {
+    width: 100px;
+    height: 26px;
+    background-color: var(--clr-white);
+    margin: 20px auto;
+    position: relative;
+    border-radius: 50px;
+    box-shadow: inset 0px 1px 1px var(--clr-gray), 0px 1px 0px var(--clr-gray);
+  }
+  .slideThree:after {
+    content: 'BG';
+    color: var(--clr-black);
+    position: absolute;
+    right: 10px;
+    z-index: 0;
+    font: 12px/26px Arial, sans-serif;
+    font-weight: bold;
+  }
+  .slideThree:before {
+    content: 'EN';
+    color: var(--clr-black);
+    position: absolute;
+    left: 10px;
+    z-index: 0;
+    font: 12px/26px Arial, sans-serif;
+    font-weight: bold;
+  }
+  .slideThree label {
+    display: block;
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 1;
+    background: linear-gradient(to bottom, var(--clr-blue) 0%, var(--clr-blue) 40%, var(--clr-blue) 100%);
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    box-shadow: 0px 2px 5px 0px var(--clar-black);
+  }
+  .slideThree input[type=checkbox] {
+    visibility: hidden;
+  }
+  .slideThree input[type=checkbox]:checked + label {
+    left: 57px;
+  }

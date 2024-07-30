@@ -1,0 +1,16 @@
+{
+    "RegisterButtonText": "Регистриране",
+    "LoginButtonText": "Вписване",
+    "ForumButtonText": "Форум",
+    "LogoutButtonText": "Излизане",
+    "StartNowButtonText": "Започни тук",
+    "HomeButtonText": "Главна страница",
+    "EventsButtonText": "Събития",
+    "RequestsButtonText": "Обяви",
+    "ProfileButtonText": "Моят профил",
+    "SubjectsEventCardText": "Предмет",
+    "NumbetOfPeopleEventCardText":"Брой хора",
+    "UsernameEventCardText":"Потребител",
+    "TeacherEventCardText":"Учител",
+    "SetEventsButtonText" : "Зададени"
+}

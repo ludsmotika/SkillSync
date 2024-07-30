@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "classnames": "^2.5.1",
+    "i18next": "^23.12.2",
+    "react-i18next": "^15.0.0",
+    "react-router-dom": "^6.25.1"
+  }
+}

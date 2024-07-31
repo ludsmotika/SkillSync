@@ -6,8 +6,10 @@ import { AuthProvider } from './contexts/AuthContext';
 // import { ChatRoom } from "./components/ChatRoom/ChatRoom";
 import { Login } from "./components/FormComponents/Login/Login";
 import { Register } from './components/FormComponents/Register/Register';
-import { Logout } from "./components/Logout/Logout";
+//import { Logout } from "./components/Logout/Logout";
 // import { Discussion } from "./components/Forum/Discussion/Discussion";
+//import GuestGuard from "./components/Common/GuestGuard";
+import UserGuard from "./components/Common/UserGuard";
 import { ForumProvider } from "./contexts/ForumContext";
 // import { Events } from "./components/Events/Events.jsx";
 // import { CreateTopic } from "./components/FormComponents/CreateTopic/CreateTopic.jsx";
@@ -51,13 +53,18 @@ function App() {
                             <EventsProvider>
                                 <Routes>
                                     <Route path='/' element={<Home />} />
-                                    {/* TODO Move in */}
-                                    <Route path='/logout' element={<Logout />} />
+
+                                      {/* TODO Move in */}
+                                    {/* <Route path='/events/details/:id' element={<EventDetails />} />
+
+                                    <Route path='/chat-room/:email' element={<ChatRoom />} /> */}
+                                      {/* PUT in guard */}
 
                                     
-                                    {/* <Route path='/events/details/:id' element={<EventDetails />} />
-                                    <Route path='/chat-room/:email' element={<ChatRoom />} />
+                                    {/* <Route path='/logout' element={<Logout />} />  */}
 
+                                    
+                                    {/*
                                     <Route path='/accept-request/:id' element={<AcceptRequest />} />
                                     <Route path='/createTopic' element={<CreateTopic />} />
                                     <Route path='/discussion/:id' element={<Discussion />} />

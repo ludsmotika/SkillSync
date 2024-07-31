@@ -21,10 +21,10 @@ export const Register = () => {
 
 	const [imageUrls, setImageUrls] = useState([]);
 
-	const imagesListRef = ref(storage, "images/");
+	const imagesListRef = ref(storage, "images");
 	const uploadFile = (uid) => {
 		if (values.image == null) return;
-		const imageRef = ref(storage, `images/${uid}`);
+		const imageRef = ref(storage, `images${uid}`);
 		uploadBytes(imageRef, values.image).then((snapshot) => {
 			getDownloadURL(snapshot.ref).then((url) => {
 				setImageUrls((prev) => [...prev, url]);

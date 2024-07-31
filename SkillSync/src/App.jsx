@@ -6,7 +6,7 @@ import { AuthProvider } from './contexts/AuthContext';
 // import { ChatRoom } from "./components/ChatRoom/ChatRoom";
 import { Login } from "./components/FormComponents/Login/Login";
 import { Register } from './components/FormComponents/Register/Register';
-//import { Logout } from "./components/Logout/Logout";
+import { Logout } from "./components/Logout/Logout";
 // import { Discussion } from "./components/Forum/Discussion/Discussion";
 //import GuestGuard from "./components/Common/GuestGuard";
 import UserGuard from "./components/Common/UserGuard";
@@ -55,13 +55,13 @@ function App() {
                                     <Route path='/' element={<Home />} />
 
                                       {/* TODO Move in */}
-                                    {/* <Route path='/events/details/:id' element={<EventDetails />} />
+                                      {/* <Route path='/events/details/:id' element={<EventDetails />} />
 
-                                    <Route path='/chat-room/:email' element={<ChatRoom />} /> */}
+                                      <Route path='/chat-room/:email' element={<ChatRoom />} /> */}
                                       {/* PUT in guard */}
 
                                     
-                                    {/* <Route path='/logout' element={<Logout />} />  */}
+                                    <Route path='/logout' element={<Logout />} /> 
 
                                     
                                     {/*

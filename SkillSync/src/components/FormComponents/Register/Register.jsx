@@ -21,10 +21,10 @@ export const Register = () => {
 
 	const [imageUrls, setImageUrls] = useState([]);
 
-	const imagesListRef = ref(storage, "images");
+	const imagesListRef = ref(storage, "images/");
 	const uploadFile = (uid) => {
 		if (values.image == null) return;
-		const imageRef = ref(storage, `images${uid}`);
+		const imageRef = ref(storage, `images/${uid}`);
 		uploadBytes(imageRef, values.image).then((snapshot) => {
 			getDownloadURL(snapshot.ref).then((url) => {
 				setImageUrls((prev) => [...prev, url]);
@@ -140,12 +140,12 @@ export const Register = () => {
 				<label htmlFor="rePass">Repeat password</label>
 				<input type="password" placeholder="Repeat password" id="rePass" name='rePass' value={values.rePass} onChange={changeHandler} onBlur={onErrorHandler} className={errors.rePassError.length > 0 ? cxForms('is-invalid') : 'a'} />
 				<span>{errors.rePassError}</span>
-				<span>{errors.generalError}</span>
 
 				<label htmlFor="image">Profile image</label>
 				<input type="file" required accept="image/*" placeholder="Profile picture" id="image" name='image' className={cx("choose-image-button")} onChange={changeImageHandler} />
 				<span>{errors.profileImageError}</span>
 
+				<span>{errors.generalError}</span>
 				<button>Sign Up</button>
 
 				<div className={cxForms('social')}>

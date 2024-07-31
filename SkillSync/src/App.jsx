@@ -4,9 +4,9 @@ import { Home } from './components/Home/Home';
 import { Header } from './components/Header/Header';
 import { AuthProvider } from './contexts/AuthContext';
 // import { ChatRoom } from "./components/ChatRoom/ChatRoom";
-//import { Login } from "./components/FormComponents/Login/Login";
-//import { Register } from './components/FormComponents/Register/Register';
-//import { Logout } from "./components/Logout/Logout";
+import { Login } from "./components/FormComponents/Login/Login";
+import { Register } from './components/FormComponents/Register/Register';
+import { Logout } from "./components/Logout/Logout";
 // import { Discussion } from "./components/Forum/Discussion/Discussion";
 import { ForumProvider } from "./contexts/ForumContext";
 // import { Events } from "./components/Events/Events.jsx";
@@ -52,13 +52,13 @@ function App() {
                                 <Routes>
                                     <Route path='/' element={<Home />} />
                                     {/* TODO Move in */}
-                                    {/* <Route path='/events/details/:id' element={<EventDetails />} />
+                                    <Route path='/logout' element={<Logout />} />
 
-                                    <Route path='/chat-room/:email' element={<ChatRoom />} />
                                     
+                                    {/* <Route path='/events/details/:id' element={<EventDetails />} />
+                                    <Route path='/chat-room/:email' element={<ChatRoom />} />
 
                                     <Route path='/accept-request/:id' element={<AcceptRequest />} />
-                                    <Route path='/logout' element={<Logout />} />
                                     <Route path='/createTopic' element={<CreateTopic />} />
                                     <Route path='/discussion/:id' element={<Discussion />} />
                                     <Route path='/forum' element={<Forum />} />
@@ -67,12 +67,12 @@ function App() {
                                     <Route path='/my-requests' element={< Requests />} />
                                     <Route path='/my-events' element={< MyEvents />} />
                                     <Route path='/set-events' element={< SetEvents />} />
-                                    <Route path='/profile' element={< Profile />} />
+                                    <Route path='/profile' element={< Profile />} /> */}
 
                                     <Route element={<UserGuard />}>
                                         <Route path='/register' element={<Register />} />
                                         <Route path='/login' element={<Login />} />
-                                    </Route> */}
+                                    </Route>
 
                                     <Route path='*' element={<NotFound />} />
 

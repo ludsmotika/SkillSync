@@ -15,7 +15,7 @@
 }
 
 .error-page-text {
-    font-size: 2rem;
+    font-size: 4rem;
     margin-bottom: 10px;
     color: var(--clr-blue);
 }
@@ -33,7 +33,7 @@
 .error-page-button {
     margin-top: 30px;
     width: 60%;
-    color: var(--clr-black);
+    color: var(--clr-white);
     padding: 15px 0;
     font-size: 24px;
     cursor: pointer;

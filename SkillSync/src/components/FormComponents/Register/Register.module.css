@@ -1,0 +1,69 @@
+@import url('../Form.module.css');
+
+.register-form {
+    margin: 3rem auto;
+    margin-top: 4.5rem;
+    min-height: 500x;
+    max-width: 550px;
+}
+
+.register-background {
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.register-background .shape {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.choose-image-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+.choose-image-button[type=file]::file-selector-button {
+    display: none;
+}
+
+.choose-image-button[type=file]::-webkit-file-upload-button {
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: -100%;
+}
+
+.choose-image-button[type=file]::-ms-browse {
+    display: none;
+}
+
+.register-background .shape:first-child {
+    background: var(--circle-gradient);
+    left: -140px;
+    top: -70px;
+}
+
+.register-background .shape:last-child {
+    background: var(--circle-gradient-reversed);
+    right: -240px;
+    bottom: -60px;
+}
+
+@media screen and (max-width: 600px) {
+    .register-background {
+        display: none;
+    }
+}

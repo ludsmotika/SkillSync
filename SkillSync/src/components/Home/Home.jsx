@@ -32,15 +32,15 @@ export const Home = () => {
     });
 
     const slides = [
-        { url: "https://firebasestorage.googleapis.com/v0/b/fmi-codes-a71a1.appspot.com/o/images%2FfmiEnter.jpeg?alt=media&token=a97ef0d3-641e-4ccd-9abd-77ed33159ff5", title: "fmi enter" },
-        { url: "https://firebasestorage.googleapis.com/v0/b/fmi-codes-a71a1.appspot.com/o/images%2Ffmi100.jpg?alt=media&token=7d922615-67b3-48e8-9283-51d9a50d8962", title: "fmi 100" },
-        { url: "https://firebasestorage.googleapis.com/v0/b/fmi-codes-a71a1.appspot.com/o/images%2Ffmi200.jpg?alt=media&token=b7bbce4f-2de8-45a0-8d76-4c6332f1f6b7", title: "fmi 200" },
+        { url: "https://firebasestorage.googleapis.com/v0/b/skillsync-fd0a1.appspot.com/o/images%2FFirstSliderImage.png?alt=media&token=9ed7abb3-a8a3-4cd8-a663-c19d1cfb4770", title: "AI generated inovative collaboration learning image" },
+        { url: "https://firebasestorage.googleapis.com/v0/b/skillsync-fd0a1.appspot.com/o/images%2FSecondSliderImage.jpg?alt=media&token=24981b92-fb38-4162-b44a-f9afce586111", title: "collaboration learning" },
+        { url: "https://firebasestorage.googleapis.com/v0/b/skillsync-fd0a1.appspot.com/o/images%2FThirdSliderImage.jpg?alt=media&token=a408a1a0-5515-488d-9b9e-0b25f4c310fb", title: "online meeting" },
     ];
 
     return (
         <div className={cx('home-main-container')}>
             <div className={cx("home-header")}>
-                <p className={cx("home-header-title")}>FMI - Skill Sync</p>
+                <p className={cx("home-header-title")}>SkillSync</p>
                 <div className={cx("float-right-container")}>
                     <ul>
                         {

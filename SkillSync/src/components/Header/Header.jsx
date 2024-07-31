@@ -41,7 +41,7 @@ export const Header = () => {
             <ul className={cx('header-list')}>
                 <li className={cx('header-heading')}>
                     <img className={cx('header-logo')} src={logo} alt='The logo of the web application' />
-                    <Link className={cx('header-heading-text')} to="/">FMI Skill Sync</Link>
+                    <Link className={cx('header-heading-text')} to="/">SkillSync</Link>
                 </li>
                 <li>
                     <i className={cx('header-icon', 'fa-solid', 'fa-home')} onClick={(event) => redirect('/', event)}></i>

@@ -12,7 +12,7 @@ import { Discussion } from "./components/Forum/Discussion/Discussion";
 import UserGuard from "./components/Common/UserGuard";
 import { ForumProvider } from "./contexts/ForumContext";
 // import { Events } from "./components/Events/Events.jsx";
-// import { CreateTopic } from "./components/FormComponents/CreateTopic/CreateTopic.jsx";
+import { CreateTopic } from "./components/FormComponents/CreateTopic/CreateTopic.jsx";
 import { NotFound } from "./components/NotFound/NotFound.jsx";
 // import { EventDetails } from "./components/Events/EventDetails/EventDetails.jsx";
 // import { CreateEvent } from "./components/FormComponents/CreateEvent/CreateEvent.jsx";
@@ -66,10 +66,10 @@ function App() {
                                     
                                     <Route path='/discussion/:id' element={<Discussion />} />
                                     <Route path='/forum' element={<Forum />} />
+                                    <Route path='/createTopic' element={<CreateTopic />} />
 
                                     {/*
                                     <Route path='/accept-request/:id' element={<AcceptRequest />} />
-                                    <Route path='/createTopic' element={<CreateTopic />} />
                                     <Route path='/editTopic/:id' element={<EditTopic />} />
                                     <Route path='/events' element={<Events />} />
                                     <Route path='/my-requests' element={< Requests />} />

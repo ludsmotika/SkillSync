@@ -24,7 +24,7 @@ export const Comment = ({ comment }) => {
             <div className={cx('comment-details')}>
                 <h4>{extractUsernameFromEmail(name)}</h4>
                 <span> {calculateTime(createdAt)} </span>
-                <p>{description}</p>
+                <p className={cx('comment-decription')}>{description}</p>
             </div>
         </div>
     )

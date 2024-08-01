@@ -22,6 +22,7 @@
 }
 
 .comment-details {
+    width: 80%;
     display: flex;
     vertical-align: top;
     flex-direction: column;
@@ -32,6 +33,10 @@
 .comment-details span {
     margin: 0;
     font-size: medium;
+}
+
+.comment-decription {
+    word-wrap: break-word;
 }
 
 .comment p {

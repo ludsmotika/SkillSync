@@ -25,43 +25,59 @@ export const Discussion = () => {
 
     const [errors, setErrors] = useState({
         commentError: false,
+        guestError: false,
     });
 
     const changeHandler = (e) => {
-        
+
         setValues(state => ({
             ...state,
             [e.target.name]: e.target.value,
         }));
-        
-        setComment(e.target.value); 
+
+        setComment(e.target.value);
     }
 
     const handleComment = (e) => {
         e.preventDefault();
+
+        if (!currentUser) {
+            setErrors(state => ({
+                ...state,
+                [`guestError`]: "Only logged in users can comment!"
+            }))
+            return;
+        }
+
+        if (description == '') {
+            setErrors(state => ({
+                ...state,
+                [`commentError`]: "Empty comment!"
+            }))
+            return;
+        }
 
         const comment = { comment: { description: description, name: currentUser?.email, ownerId: currentUser.uid } };
         forumService.commentTopic(id, comment, currentTopic.comments)
             .then(comments => topicEdit(id, { ...currentTopic, comments }));
 
         setComment('');
-    }
-
-    const onChange = () => {
-
+        setErrors({
+            commentError: false,
+            guestError: false,
+        })
     }
 
     return (
         <>
             <div className={cx('comments-container')}>
                 <div className={cx('comment-post')}>
-                <Publication key={id} topic={currentTopic}></Publication>
+                    <Publication key={id} topic={currentTopic}></Publication>
                     <div className={cx('comments')}>
                         <h1>Comments</h1>
-                        {currentTopic.comments?.length > 0 
-                             ? currentTopic.comments
-                                        .sort((a,b) => b.comment.createdAt.seconds - a.comment.createdAt.seconds)
-                                        .map((x, index) => <Comment key={index + 1} comment={x.comment} />)
+                        {currentTopic.comments?.length > 0
+                            ? currentTopic.comments
+                                .map((x, index) => <Comment key={index + 1} comment={x.comment} />)
                             : <h1>No comments yet</h1>}
                     </div>
 
@@ -72,7 +88,8 @@ export const Discussion = () => {
                         <div className={cx('form-group')}>
                             <label htmlFor="message">Message</label>
                             <textarea name="message" id="msg" cols="30" rows="5" placeholder="Write your comment.." value={description} onChange={changeHandler}></textarea>
-                            <span></span>
+                            <span>{errors.guestError}</span>
+                            <span>{errors.commentError}</span>
                         </div>
                         <div className={cx('form-group')}>
                             <button>Post Comment</button>

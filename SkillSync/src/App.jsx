@@ -1,13 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { Home } from './components/Home/Home';
-// import { Forum } from './components/Forum/Forum';
+import { Forum } from './components/Forum/Forum';
 import { Header } from './components/Header/Header';
 import { AuthProvider } from './contexts/AuthContext';
 // import { ChatRoom } from "./components/ChatRoom/ChatRoom";
 import { Login } from "./components/FormComponents/Login/Login";
 import { Register } from './components/FormComponents/Register/Register';
 import { Logout } from "./components/Logout/Logout";
-// import { Discussion } from "./components/Forum/Discussion/Discussion";
+import { Discussion } from "./components/Forum/Discussion/Discussion";
 //import GuestGuard from "./components/Common/GuestGuard";
 import UserGuard from "./components/Common/UserGuard";
 import { ForumProvider } from "./contexts/ForumContext";
@@ -64,11 +64,12 @@ function App() {
                                     <Route path='/logout' element={<Logout />} /> 
 
                                     
+                                    <Route path='/discussion/:id' element={<Discussion />} />
+                                    <Route path='/forum' element={<Forum />} />
+
                                     {/*
                                     <Route path='/accept-request/:id' element={<AcceptRequest />} />
                                     <Route path='/createTopic' element={<CreateTopic />} />
-                                    <Route path='/discussion/:id' element={<Discussion />} />
-                                    <Route path='/forum' element={<Forum />} />
                                     <Route path='/editTopic/:id' element={<EditTopic />} />
                                     <Route path='/events' element={<Events />} />
                                     <Route path='/my-requests' element={< Requests />} />

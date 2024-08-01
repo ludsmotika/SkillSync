@@ -37,7 +37,7 @@ export const Header = () => {
     }, [currentUser?.email]);
 
     return (
-        <header onClick={() => { return isOpen ? setIsOpen(false) : setIsOpen(true) }} className={cx('header', isOpen ? '' : 'header-closed')} >
+        <header onClick={() => { setIsOpen( isOpen => !isOpen) }} className={cx('header', isOpen ? '' : 'header-closed')} >
             <ul className={cx('header-list')}>
                 <li className={cx('header-heading')}>
                     <img className={cx('header-logo')} src={logo} alt='The logo of the web application' />

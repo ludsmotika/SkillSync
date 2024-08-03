@@ -11,11 +11,11 @@ import { Discussion } from "./components/Forum/Discussion/Discussion";
 //import GuestGuard from "./components/Common/GuestGuard";
 import UserGuard from "./components/Common/UserGuard";
 import { ForumProvider } from "./contexts/ForumContext";
-// import { Events } from "./components/Events/Events.jsx";
+import { Events } from "./components/Events/Events.jsx";
 import { CreateTopic } from "./components/FormComponents/CreateTopic/CreateTopic.jsx";
 import { NotFound } from "./components/NotFound/NotFound.jsx";
-// import { EventDetails } from "./components/Events/EventDetails/EventDetails.jsx";
-//import { CreateEvent } from "./components/FormComponents/CreateEvent/CreateEvent.jsx";
+import { EventDetails } from "./components/Events/EventDetails/EventDetails.jsx";
+import { CreateEvent } from "./components/FormComponents/CreateEvent/CreateEvent.jsx";
 
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
@@ -26,7 +26,6 @@ import { EventsProvider } from "./contexts/EventsContext.jsx";
 // import { AcceptRequest } from "./components/FormComponents/AcceptRequest/AcceptRequest.jsx";
 import { EditTopic } from "./components/FormComponents/EditTopic/EditTopic.jsx";
 // import { MyEvents } from "./components/Events/MyEvents/MyEvents.jsx";
-// import { SetEvents } from "./components/Events/SetEvents/SetEvents.jsx";
 // import { Profile } from "./components/Profile/Profile.jsx";
 
 i18n
@@ -63,18 +62,21 @@ function App() {
                                     
                                     <Route path='/logout' element={<Logout />} /> 
 
+                                    <Route path='/events/details/:id' element={<EventDetails />} />
                                     
                                     <Route path='/discussion/:id' element={<Discussion />} />
                                     <Route path='/forum' element={<Forum />} />
                                     <Route path='/createTopic' element={<CreateTopic />} />
                                     <Route path='/editTopic/:id' element={<EditTopic />} />
+                                    <Route path='/events' element={<Events />} />
+                                    <Route path='/create-event' element={<CreateEvent />} />
+
                                     
                                     {/*
                                     <Route path='/accept-request/:id' element={<AcceptRequest />} />
                                     <Route path='/events' element={<Events />} />
                                     <Route path='/my-requests' element={< Requests />} />
                                     <Route path='/my-events' element={< MyEvents />} />
-                                    <Route path='/set-events' element={< SetEvents />} />
                                     <Route path='/profile' element={< Profile />} /> */}
 
                                     <Route element={<UserGuard />}>

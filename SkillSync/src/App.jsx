@@ -22,7 +22,7 @@ import { initReactI18next } from 'react-i18next';
 import translationsEn from './infrastructureUtils/translation/translationsEn.json'
 import translationsBg from './infrastructureUtils/translation/translationsBg.json'
 import { EventsProvider } from "./contexts/EventsContext.jsx";
-// import { Requests } from "./components/Requests/Requests.jsx";
+import { Requests } from "./components/Requests/Requests.jsx";
 // import { AcceptRequest } from "./components/FormComponents/AcceptRequest/AcceptRequest.jsx";
 import { EditTopic } from "./components/FormComponents/EditTopic/EditTopic.jsx";
 // import { MyEvents } from "./components/Events/MyEvents/MyEvents.jsx";
@@ -70,12 +70,12 @@ function App() {
                                     <Route path='/editTopic/:id' element={<EditTopic />} />
                                     <Route path='/events' element={<Events />} />
                                     <Route path='/create-event' element={<CreateEvent />} />
+                                    <Route path='/my-requests' element={< Requests />} />
 
                                     
                                     {/*
                                     <Route path='/accept-request/:id' element={<AcceptRequest />} />
                                     <Route path='/events' element={<Events />} />
-                                    <Route path='/my-requests' element={< Requests />} />
                                     <Route path='/my-events' element={< MyEvents />} />
                                     <Route path='/profile' element={< Profile />} /> */}
 

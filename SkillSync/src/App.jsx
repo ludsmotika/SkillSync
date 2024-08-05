@@ -3,7 +3,7 @@ import { Home } from './components/Home/Home';
 import { Forum } from './components/Forum/Forum';
 import { Header } from './components/Header/Header';
 import { AuthProvider } from './contexts/AuthContext';
-// import { ChatRoom } from "./components/ChatRoom/ChatRoom";
+import { ChatRoom } from "./components/ChatRoom/ChatRoom";
 import { Login } from "./components/FormComponents/Login/Login";
 import { Register } from './components/FormComponents/Register/Register';
 import { Logout } from "./components/Logout/Logout";
@@ -23,7 +23,6 @@ import translationsEn from './infrastructureUtils/translation/translationsEn.jso
 import translationsBg from './infrastructureUtils/translation/translationsBg.json'
 import { EventsProvider } from "./contexts/EventsContext.jsx";
 import { Requests } from "./components/Requests/Requests.jsx";
-// import { AcceptRequest } from "./components/FormComponents/AcceptRequest/AcceptRequest.jsx";
 import { EditTopic } from "./components/FormComponents/EditTopic/EditTopic.jsx";
 // import { MyEvents } from "./components/Events/MyEvents/MyEvents.jsx";
 // import { Profile } from "./components/Profile/Profile.jsx";
@@ -53,17 +52,15 @@ function App() {
                                 <Routes>
                                     <Route path='/' element={<Home />} />
 
-                                      {/* TODO Move in */}
-                                      {/* <Route path='/events/details/:id' element={<EventDetails />} />
+                                    {/* TODO Move in */}
+                                    {/* <Route path='/events/details/:id' element={<EventDetails />} /> */}
+                                    {/* PUT in guard */}
 
-                                      <Route path='/chat-room/:email' element={<ChatRoom />} /> */}
-                                      {/* PUT in guard */}
-
-                                    
-                                    <Route path='/logout' element={<Logout />} /> 
+                                    <Route path='/chat-room/:email' element={<ChatRoom />} />
+                                    <Route path='/logout' element={<Logout />} />
 
                                     <Route path='/events/details/:id' element={<EventDetails />} />
-                                    
+
                                     <Route path='/discussion/:id' element={<Discussion />} />
                                     <Route path='/forum' element={<Forum />} />
                                     <Route path='/createTopic' element={<CreateTopic />} />
@@ -72,9 +69,8 @@ function App() {
                                     <Route path='/create-event' element={<CreateEvent />} />
                                     <Route path='/my-requests' element={< Requests />} />
 
-                                    
+
                                     {/*
-                                    <Route path='/accept-request/:id' element={<AcceptRequest />} />
                                     <Route path='/events' element={<Events />} />
                                     <Route path='/my-events' element={< MyEvents />} />
                                     <Route path='/profile' element={< Profile />} /> */}

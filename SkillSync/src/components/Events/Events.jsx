@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 let cx = classNames.bind(styles);
 
 export const Events = () => {
-    const { events } = useEventsContext();  
+    const { events } = useEventsContext();
     const filteredEvents = events.filter(event => !event.teacherEmail);
 
     const navigate = useNavigate();
@@ -27,7 +27,11 @@ export const Events = () => {
                 </div>
             </div>
             <section className={cx('event-wrapper')}>
-                {filteredEvents.map((e, index) => <EventCard key={index} event={e} />)}
+                {
+                    filteredEvents.length == 0 ?
+                        <h1>No events yet!</h1> :
+                        filteredEvents.map((e, index) => <EventCard key={index} event={e} />)
+                }
             </section>
         </>
     )

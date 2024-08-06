@@ -24,7 +24,7 @@ import translationsBg from './infrastructureUtils/translation/translationsBg.jso
 import { EventsProvider } from "./contexts/EventsContext.jsx";
 import { Requests } from "./components/Requests/Requests.jsx";
 import { EditTopic } from "./components/FormComponents/EditTopic/EditTopic.jsx";
-// import { MyEvents } from "./components/Events/MyEvents/MyEvents.jsx";
+import { MyEvents } from "./components/Events/MyEvents/MyEvents.jsx";
 // import { Profile } from "./components/Profile/Profile.jsx";
 
 i18n
@@ -68,11 +68,11 @@ function App() {
                                     <Route path='/events' element={<Events />} />
                                     <Route path='/create-event' element={<CreateEvent />} />
                                     <Route path='/my-requests' element={< Requests />} />
+                                    <Route path='/my-events' element={< MyEvents />} />
 
 
                                     {/*
                                     <Route path='/events' element={<Events />} />
-                                    <Route path='/my-events' element={< MyEvents />} />
                                     <Route path='/profile' element={< Profile />} /> */}
 
                                     <Route element={<UserGuard />}>

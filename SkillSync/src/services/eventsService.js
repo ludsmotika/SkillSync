@@ -54,3 +54,14 @@ export const updateEvent = async (eventId, data) => {
 export const deleteEvent = async (eventId) => {
     await deleteDoc(doc(db, "events", eventId));
 }
+
+export const  setTeacherToEvent = async (eventId, teacherEmail) => {
+    const eventRef = doc(db, 'events', eventId);
+
+    await updateDoc(eventRef, {
+        teacherEmail: teacherEmail
+    });
+
+    const updatedEventSnap = await getDoc(eventRef);
+    return { ...updatedEventSnap.data(), id: eventId };
+}

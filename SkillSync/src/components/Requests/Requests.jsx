@@ -6,6 +6,7 @@ import { useAuthContext } from '../../contexts/AuthContext.jsx';
 import * as requestsService from '../../services/requestsService.js';
 import * as eventsService from '../../services/eventsService.js';
 import { useNavigate } from "react-router";
+import { useEventsContext } from "../../contexts/EventsContext.jsx";
 
 let cx = classNames.bind(requestsStyles);
 
@@ -13,6 +14,8 @@ export const Requests = () => {
     const [requests, setRequests] = useState([]);
     const { currentUser } = useAuthContext();
     const navigate = useNavigate();
+    const { eventEdit } = useEventsContext();
+
 
     const deleteRequest = (requestId) => {
         requestsService.deleteRequest(requestId)
@@ -24,7 +27,7 @@ export const Requests = () => {
             });
     }
 
-    const acceptRequest = (requestId) => {
+    const acceptRequest = async (requestId) => {
         const currRequest = requests.find(t => t.id === requestId);
         const eventId = currRequest.eventId;
 
@@ -36,12 +39,9 @@ export const Requests = () => {
                 console.log(err);
             });
 
-        eventsService.setTeacherToEvent(eventId, currRequest?.from)
-            .then(res => { console.log("succes") })
-            .catch(err => { console.log(err) });
-        // Redirect to Page for data/time and location (update the event)
-
-        navigate(`/accept-request/${eventId}`);
+        const currentEvent = await eventsService.setTeacherToEvent(eventId, currRequest?.from);
+        eventEdit(eventId, currentEvent);
+        navigate(`/my-events`);
     }
 
     useEffect(() => {

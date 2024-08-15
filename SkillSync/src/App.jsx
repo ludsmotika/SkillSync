@@ -8,7 +8,7 @@ import { Login } from "./components/FormComponents/Login/Login";
 import { Register } from './components/FormComponents/Register/Register';
 import { Logout } from "./components/Logout/Logout";
 import { Discussion } from "./components/Forum/Discussion/Discussion";
-//import GuestGuard from "./components/Common/GuestGuard";
+import GuestGuard from "./components/Common/GuestGuard";
 import UserGuard from "./components/Common/UserGuard";
 import { ForumProvider } from "./contexts/ForumContext";
 import { Events } from "./components/Events/Events.jsx";
@@ -52,23 +52,24 @@ function App() {
                                 <Routes>
                                     <Route path='/' element={<Home />} />
 
-                                    {/* TODO Move in */}
-                                    {/* PUT in guard */}
+                                    <Route element={<GuestGuard />}>
+                                        <Route path='/chat-room/:email' element={<ChatRoom />} />
+                                        <Route path='/logout' element={<Logout />} />
 
-                                    <Route path='/chat-room/:email' element={<ChatRoom />} />
-                                    <Route path='/logout' element={<Logout />} />
+                                        <Route path='/events/details/:id' element={<EventDetails />} />
 
-                                    <Route path='/events/details/:id' element={<EventDetails />} />
+                                        <Route path='/discussion/:id' element={<Discussion />} />
+                                        <Route path='/forum' element={<Forum />} />
+                                        <Route path='/createTopic' element={<CreateTopic />} />
+                                        <Route path='/editTopic/:id' element={<EditTopic />} />
+                                        <Route path='/events' element={<Events />} />
+                                        <Route path='/create-event' element={<CreateEvent />} />
+                                        <Route path='/my-requests' element={< Requests />} />
+                                        <Route path='/my-events' element={< MyEvents />} />
+                                        <Route path='/profile' element={< Profile />} />
+                                    </Route>
 
-                                    <Route path='/discussion/:id' element={<Discussion />} />
-                                    <Route path='/forum' element={<Forum />} />
-                                    <Route path='/createTopic' element={<CreateTopic />} />
-                                    <Route path='/editTopic/:id' element={<EditTopic />} />
-                                    <Route path='/events' element={<Events />} />
-                                    <Route path='/create-event' element={<CreateEvent />} />
-                                    <Route path='/my-requests' element={< Requests />} />
-                                    <Route path='/my-events' element={< MyEvents />} />
-                                    <Route path='/profile' element={< Profile />} /> 
+
 
                                     <Route element={<UserGuard />}>
                                         <Route path='/register' element={<Register />} />

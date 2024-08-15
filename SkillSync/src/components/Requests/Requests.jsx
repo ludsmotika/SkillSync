@@ -7,6 +7,7 @@ import * as requestsService from '../../services/requestsService.js';
 import * as eventsService from '../../services/eventsService.js';
 import { useNavigate } from "react-router";
 import { useEventsContext } from "../../contexts/EventsContext.jsx";
+import { useTranslation } from "react-i18next";
 
 let cx = classNames.bind(requestsStyles);
 
@@ -15,6 +16,7 @@ export const Requests = () => {
     const { currentUser } = useAuthContext();
     const navigate = useNavigate();
     const { eventEdit } = useEventsContext();
+    const {t} = useTranslation();
 
 
     const deleteRequest = (requestId) => {
@@ -57,7 +59,7 @@ export const Requests = () => {
 
     return (
         <div className={cx("requests-container")}>
-            <h1>Your requests</h1>
+            <h1>{t("RequestsTitleText")}</h1>
             {requests?.length > 0 ? requests.map(e => (
                 <RequestItem
                     key={e.id}
@@ -67,7 +69,7 @@ export const Requests = () => {
                     deleteRequest={deleteRequest}
                     acceptRequest={acceptRequest}
                 />
-            )) : <h1>No requests yet!</h1>}
+            )) : <h1>{t("NoRequestsText")}</h1>}
         </div>
     );
 } 

@@ -7,6 +7,7 @@ import * as authService from '../../../services/authService';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../../contexts/AuthContext';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 let cx = classNames.bind(loginStyles);
 let cxForms = classNames.bind(formStyles);
@@ -14,6 +15,7 @@ let cxForms = classNames.bind(formStyles);
 export const Login = () => {
     const navigate = useNavigate();
     const { currentUser } = useAuthContext();
+    const { t } = useTranslation();
 
     const [values, setValues] = useState({
         email: '',
@@ -42,7 +44,7 @@ export const Login = () => {
                 setHasErrors(true);
             }
         }
-        
+
     }
 
     return (
@@ -52,24 +54,24 @@ export const Login = () => {
                 <div className={cx('shape')} />
             </div>
             <form className={cx('login-form')} onSubmit={loginHandler}>
-                <h3>Login Here</h3>
+                <h3>{t("LoginFormTitleText")}</h3>
 
-                <label htmlFor="email">Email</label>
-                <input type="text" placeholder="Email" id="email" name='email' value={values.email} onChange={changeHandler} />
+                <label htmlFor="email">{t("LoginFormEmailText")}</label>
+                <input type="text" placeholder={t("LoginFormEmailText")} id="email" name='email' value={values.email} onChange={changeHandler} />
 
-                <label htmlFor="password">Password</label>
-                <input type="password" placeholder="Password" id="password" name='password' value={values.password} onChange={changeHandler} />
+                <label htmlFor="password">{t("LoginFormPasswordText")}</label>
+                <input type="password" placeholder={t("LoginFormPasswordText")} id="password" name='password' value={values.password} onChange={changeHandler} />
                 {hasErrors
-                    ? <span>Invalid email or password</span>
+                    ? <span>{t("LoginFormInvalidAttemptText")}</span>
                     : null
                 }
 
-                <button>Log In</button>
+                <button>{t("LoginFormSubmitButtonText")}</button>
 
                 <div className={cxForms('social')}>
-                    <p>or you could also <Link to="/register">Sign Up</Link></p>
+                    <p>{t("LoginFormDidnotHaveAnAccountText")} <Link to="/register">{t("LoginFormRegisterLinkText")}</Link></p>
                 </div>
-            </form> 
+            </form>
         </>
     );
 }

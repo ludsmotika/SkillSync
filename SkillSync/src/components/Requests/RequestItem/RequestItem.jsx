@@ -3,11 +3,13 @@ import classNames from 'classnames/bind';
 import { getProfilePictureByEmail } from '../../../services/userService.js';
 import requestItemStyles from './RequestItem.module.css';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 let cx = classNames.bind(requestItemStyles);
 
 export const RequestItem = ({ id, onClickHandler, from, eventTitle, deleteRequest, acceptRequest }) => {
     const [ownerImage, setOwnerImage] = useState("");
+    const {t} = useTranslation();
 
     useEffect(() => {
         getProfilePictureByEmail(from)
@@ -27,13 +29,13 @@ export const RequestItem = ({ id, onClickHandler, from, eventTitle, deleteReques
             </div>
             <div className={cx('btn-container')}>
                 <button className={cx('accept-button')} onClick={() => acceptRequest(id)}>
-                    Accept request
+                    {t("RequestAcceptText")}
                 </button>
                 <button className={cx('decline-button')} onClick={() => deleteRequest(id)}>
-                    Decline request
+                    {t("RequestDeclineText")}
                 </button>
                 <Link to={`/chat-room/${from}`} className={cx('chat-button')} >
-                    Chat
+                {t("RequestChatButtonText")}
                 </Link>
             </div>
         </div>

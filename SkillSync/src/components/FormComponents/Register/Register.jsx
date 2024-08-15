@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react';
 import { errorMessages, getErrorMessage } from '../../../utils/errorUtil';
 import { storage } from "../../../firebase/base.js";
 import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
+import { useTranslation } from 'react-i18next';
 
 
 let cx = classNames.bind(styles);
@@ -20,6 +21,7 @@ export const Register = () => {
 	const { currentUser } = useAuthContext();
 
 	const [imageUrls, setImageUrls] = useState([]);
+	const {t } = useTranslation();
 
 	const imagesListRef = ref(storage, "images/");
 	const uploadFile = (uid) => {
@@ -127,35 +129,29 @@ export const Register = () => {
 				<div className={cx('shape')} />
 			</div>
 			<form className={cx('register-form')} onSubmit={registerHandler}>
-				<h3>Register Here</h3>
+				<h3>{t("RegisterFormTitleText")}</h3>
 
-				<label htmlFor="email">Email</label>
-				<input type="text" placeholder="Email" id="email" name='email' value={values.email} onChange={changeHandler} onBlur={onErrorHandler} className={errors.emailError.length > 0 ? cxForms('is-invalid') : 'a'} />
+				<label htmlFor="email">{t("RegisterFormEmailText")}</label>
+				<input type="text" placeholder={t("RegisterFormEmailText")} id="email" name='email' value={values.email} onChange={changeHandler} onBlur={onErrorHandler} className={errors.emailError.length > 0 ? cxForms('is-invalid') : 'a'} />
 				<span>{errors.emailError}</span>
 
-				<label htmlFor="password">Password</label>
-				<input type="password" placeholder="Password" id="password" name='password' value={values.password} onChange={changeHandler} onBlur={onErrorHandler} className={errors.passwordError.length > 0 ? cxForms('is-invalid') : 'a'} />
+				<label htmlFor="password">{t("RegisterFormPasswordText")}</label>
+				<input type="password" placeholder={t("RegisterFormPasswordText")} id="password" name='password' value={values.password} onChange={changeHandler} onBlur={onErrorHandler} className={errors.passwordError.length > 0 ? cxForms('is-invalid') : 'a'} />
 				<span>{errors.passwordError}</span>
 
-				<label htmlFor="rePass">Repeat password</label>
-				<input type="password" placeholder="Repeat password" id="rePass" name='rePass' value={values.rePass} onChange={changeHandler} onBlur={onErrorHandler} className={errors.rePassError.length > 0 ? cxForms('is-invalid') : 'a'} />
+				<label htmlFor="rePass">{t("RegisterFormRepeadPasswordText")}</label>
+				<input type="password" placeholder={t("RegisterFormRepeadPasswordText")} id="rePass" name='rePass' value={values.rePass} onChange={changeHandler} onBlur={onErrorHandler} className={errors.rePassError.length > 0 ? cxForms('is-invalid') : 'a'} />
 				<span>{errors.rePassError}</span>
 
-				<label htmlFor="image">Profile image</label>
-				<input type="file" required accept="image/*" placeholder="Profile picture" id="image" name='image' className={cx("choose-image-button")} onChange={changeImageHandler} />
+				<label htmlFor="image">{t("RegisterFormProfileImageText")}</label>
+				<input type="file" required accept="image/*" placeholder={t("RegisterFormProfileImageText")} id="image" name='image' className={cx("choose-image-button")} onChange={changeImageHandler} />
 				<span>{errors.profileImageError}</span>
 
 				<span>{errors.generalError}</span>
-				<button>Sign Up</button>
+				<button>{t("RegisterFormSubmitButtonText")}</button>
 
 				<div className={cxForms('social')}>
-					<p>or you could also <Link to="/login">Log In</Link></p>
-					{/* <div className={cxForms('go')}>
-                        <i className="fab fa-google" /> Google
-                    </div>
-                    <div className={cxForms('fb')}>
-                        <i className="fab fa-facebook" /> Facebook
-                    </div> */}
+					<p>{t("RegisterFormAlreadyHaveAProfileText")}<Link to="/login">{t("RegisterFormLoginLinkText")}</Link></p>
 				</div>
 			</form>
 		</>

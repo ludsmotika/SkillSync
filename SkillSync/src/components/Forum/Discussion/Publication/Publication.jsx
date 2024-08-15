@@ -6,7 +6,7 @@ import { useForumContext } from '../../../../contexts/ForumContext.jsx';
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import { useAuthContext } from '../../../../contexts/AuthContext.jsx';
 import * as forumService from '../../../../services/forumService.js';
-import { useEffect } from 'react';
+import { useTranslation } from "react-i18next";
 
 let cx = classNames.bind(styles);
 
@@ -15,6 +15,7 @@ export const Publication = ({ topic}) => {
     const { currentUser } = useAuthContext();
     const {id} = useParams();
     const { topicDelete } = useForumContext();
+    const {t } = useTranslation();
 
     const { title, subject, comment, createdAt, name } = topic;
     const navigate = useNavigate();
@@ -37,23 +38,23 @@ export const Publication = ({ topic}) => {
         <>
             <div className={cx('publication-view')}>
                 <div className={cx('details')}>
-                    <span className={cx('label')}>Title:</span>
+                    <span className={cx('label')}>{t("PublicationTitleText")}:</span>
                     <span className={cx('value')}>{title}</span>
                 </div>
                 <div className={cx('details')}>
-                    <span className={cx('label')}>Comment:</span>
+                    <span className={cx('label')}>{t("PublicationCommentText")}:</span>
                     <span className={cx('value')}>{comment}</span>
                 </div>
                 <div className={cx('details')}>
-                    <span className={cx('label')}>Subject:</span>
+                    <span className={cx('label')}>{t("ForumSubjectText")}:</span>
                     <span className={cx('value')}>{subject}</span>
                 </div>
                 <div className={cx('details')}>
-                    <span className={cx('label')}>Creator:</span>
+                    <span className={cx('label')}>{t("TopicCreatorText")}:</span>
                     <span className={cx('value')}>{name}</span>
                 </div>
                 <div className={cx('details')}>
-                    <span className={cx('label')}>Creation Date:</span>
+                    <span className={cx('label')}>{t("TopicCreationDate")}:</span>
                     <span className={cx('value')}>{calculateTime(createdAt)}</span>
                 </div>
                 <div className={cx('btn-container')}>

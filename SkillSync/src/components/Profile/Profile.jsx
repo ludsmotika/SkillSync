@@ -9,6 +9,8 @@ import { MiniEventCard } from './MiniEventCard/MiniEventCard';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { getProfilePictureByEmail } from '../../services/userService';
+import { useTranslation } from "react-i18next";
+
 
 
 let cx = classNames.bind(styles);
@@ -19,6 +21,7 @@ export const Profile = () => {
     const { currentUser } = useContext(AuthContext);
 
     const [urlPicture, setUrlPicture] = useState('');
+    const { t } = useTranslation();
 
     useEffect(() => {
         if (currentUser) {
@@ -52,7 +55,7 @@ export const Profile = () => {
     return (
         <>
             <div className={cx("header-container")}>
-        <h3 className={cx("my-profile-title")}>My profile</h3>
+        <h3 className={cx("my-profile-title")}>{t("MyProfileTitleText")}</h3>
                 <div className={cx("my-profile-info")}>
                     <img className={cx("icon")} src={urlPicture} />
                     <h3>{currentUser?.email}</h3>
@@ -61,14 +64,14 @@ export const Profile = () => {
 
             <div className={cx('profile-wrapper')}>
                 <section className={cx('profile-card-wrapper')}>
-                    <h3>Chats</h3>
+                    <h3>{t("MyProfileChatsText")}</h3>
                     {chats.map((chat) => (
                         <ProfileCard key={chat.id} email={chat.users[0] === currentUser?.email ? chat.users[1] : chat.users[0]} />
                     ))}
                 </section>
 
                 <div className={cx("outer")}>
-                    <h3>My events</h3>
+                    <h3>{t("MyProfileEventsText")}</h3>
                     <section className={cx('my-events-wrapper')}>
                         {myEvents.map((e, index) => <MiniEventCard key={index} event={e} />)}
                     </section>

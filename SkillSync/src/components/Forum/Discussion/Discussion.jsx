@@ -8,6 +8,8 @@ import { useForumContext } from '../../../contexts/ForumContext';
 import * as forumService from '../../../services/forumService.js'
 import { useAuthContext } from '../../../contexts/AuthContext.jsx';
 import { extractUsernameFromEmail } from '../../../utils/usernameUtils.js'
+import { useTranslation } from "react-i18next";
+
 
 let cx = classNames.bind(styles);
 
@@ -28,6 +30,7 @@ export const Discussion = () => {
         guestError: false,
     });
 
+    const {t} = useTranslation();
     const changeHandler = (e) => {
 
         setValues(state => ({
@@ -74,25 +77,25 @@ export const Discussion = () => {
                 <div className={cx('comment-post')}>
                     <Publication key={id} topic={currentTopic}></Publication>
                     <div className={cx('comments')}>
-                        <h1>Comments</h1>
+                        <h1>{t("DiscussionCommentsText")}</h1>
                         {currentTopic.comments?.length > 0
                             ? currentTopic.comments
                                 .map((x, index) => <Comment key={index + 1} comment={x.comment} />)
-                            : <h1>No comments yet</h1>}
+                            : <h1>{t("DiscussionNoCommentsText")}</h1>}
                     </div>
 
                 </div>
                 <div className={cx('comment-form')}>
                     <form id="align-form" onSubmit={handleComment}>
-                        <h4>Leave a comment</h4>
+                        <h4>{t("DiscussionLeaveACommentText")}</h4>
                         <div className={cx('form-group')}>
-                            <label htmlFor="message">Message</label>
-                            <textarea name="message" id="msg" cols="30" rows="5" placeholder="Write your comment.." value={description} onChange={changeHandler}></textarea>
+                            <label htmlFor="message">{t("DiscussionMessageText")}</label>
+                            <textarea name="message" id="msg" cols="30" rows="5" placeholder={t("DiscussionWriteYourCommentText")} value={description} onChange={changeHandler}></textarea>
                             <span>{errors.guestError}</span>
                             <span>{errors.commentError}</span>
                         </div>
                         <div className={cx('form-group')}>
-                            <button>Post Comment</button>
+                            <button>{t("DiscussionPostCommentText")}</button>
                         </div>
                     </form>
                 </div>

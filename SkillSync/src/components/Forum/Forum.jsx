@@ -49,11 +49,11 @@ export const Forum = () => {
         <div className={cx('forum')}>
             <div className={cx('forum-heading')}>
                 <h1 className={cx('forum-heading-title')}>
-                    Welcome to our forum!
+                    {t("ForumWelcomeText")}
                 </h1>
 
                 <div className={cx('forum-search')}>
-                    <label>Search</label>
+                    <label>{t("ForumSearchText")}</label>
                     <input
                         className={cx('forum-topics-search')}
                         type="text"
@@ -64,7 +64,7 @@ export const Forum = () => {
                 </div>
 
                 <div className={cx('select-dropdown')}>
-                    <label>Subject</label>
+                    <label>{t("ForumSubjectText")}</label>
                     <select
                         className={cx('select-subject')}
                         value={selectedSubject}
@@ -83,7 +83,7 @@ export const Forum = () => {
 
                 <li className={cx('create-topic')}>
                     <i className={cx('header-icon', 'fa-solid', 'fa-play')}></i>
-                    <Link to="/createTopic">Start a discussion</Link>
+                    <Link to="/createTopic">{t("ForumCreateTopicButtonText")}</Link>
                 </li>
             </div>
             <div className={cx('topics-container')}>

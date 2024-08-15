@@ -4,12 +4,15 @@ import PropTypes from 'prop-types';
 import styles from './Topic.module.css';
 import { Link } from 'react-router-dom';
 import { calculateTime } from '../../../utils/calculateTime';
+import { useTranslation } from "react-i18next";
+
 
 let cx = classNames.bind(styles);
 
 export const Topic = ({ topic }) => {
 
   const { id, title, subject, name, createdAt } = topic;
+  const { t } = useTranslation();
 
   return (  
     <div className={cx('topic-container')}>
@@ -17,17 +20,17 @@ export const Topic = ({ topic }) => {
       <div className={cx('topic-details')}>
 
         <p className={cx('topic-info')}>
-          <strong>Subject:</strong> <span className="subject">{subject}</span>
+          <strong>{t("ForumSubjectText")}:</strong> <span className="subject">{subject}</span>
         </p>
         <p className={cx('topic-info')}>
-          <strong>Creator:</strong> <span className="creator">{name}</span>
+          <strong>{t("TopicCreatorText")}:</strong> <span className="creator">{name}</span>
         </p>
         <p className={cx('topic-info')}>
-          <strong>Posted before:</strong> <span className="creation-date">{calculateTime(createdAt)}</span>
+          <strong>{t("TopicPostedBeforeText")}:</strong> <span className="creation-date">{calculateTime(createdAt)}</span>
         </p>
         <div className={cx('see-discussion-container')}>
           <li className={cx('see-discussion')}>
-            <Link to={`/discussion/${id}`}>See more...</Link>
+            <Link to={`/discussion/${id}`}>{t("TopicSeeMoreButtonText")}</Link>
           </li>
         </div>
       </div>

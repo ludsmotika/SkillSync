@@ -1,6 +1,6 @@
 # [Skill Sync] 
 
-<img src="logo.png" alt="logo.png" height="300" />
+<img src="SkillSync/blob/main/SkillSync/public/static/images/logo.png" alt="logo.png" height="300" />
 
 ## Introduction
 

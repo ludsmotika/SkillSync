@@ -12,5 +12,6 @@
     "NumbetOfPeopleEventCardText":"Number of people",
     "UsernameEventCardText":"User",
     "TeacherEventCardText":"Teacher",
-    "SetEventsButtonText" : "Set Events"
+    "SetEventsButtonText" : "Set Events",
+    "AllSubjectsOption" : "All"
 }

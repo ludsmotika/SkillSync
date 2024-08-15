@@ -25,7 +25,7 @@ import { EventsProvider } from "./contexts/EventsContext.jsx";
 import { Requests } from "./components/Requests/Requests.jsx";
 import { EditTopic } from "./components/FormComponents/EditTopic/EditTopic.jsx";
 import { MyEvents } from "./components/Events/MyEvents/MyEvents.jsx";
-// import { Profile } from "./components/Profile/Profile.jsx";
+import { Profile } from "./components/Profile/Profile.jsx";
 
 i18n
     .use(initReactI18next)
@@ -53,7 +53,6 @@ function App() {
                                     <Route path='/' element={<Home />} />
 
                                     {/* TODO Move in */}
-                                    {/* <Route path='/events/details/:id' element={<EventDetails />} /> */}
                                     {/* PUT in guard */}
 
                                     <Route path='/chat-room/:email' element={<ChatRoom />} />
@@ -69,11 +68,7 @@ function App() {
                                     <Route path='/create-event' element={<CreateEvent />} />
                                     <Route path='/my-requests' element={< Requests />} />
                                     <Route path='/my-events' element={< MyEvents />} />
-
-
-                                    {/*
-                                    <Route path='/events' element={<Events />} />
-                                    <Route path='/profile' element={< Profile />} /> */}
+                                    <Route path='/profile' element={< Profile />} /> 
 
                                     <Route element={<UserGuard />}>
                                         <Route path='/register' element={<Register />} />

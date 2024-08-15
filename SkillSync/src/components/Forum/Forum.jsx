@@ -5,6 +5,7 @@ import { Topic } from './Topic/Topic';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { ForumContext } from '../../contexts/ForumContext';
+import { useTranslation } from 'react-i18next';
 
 
 let cx = classNames.bind(styles);
@@ -12,12 +13,13 @@ let cx = classNames.bind(styles);
 export const Forum = () => {
 
     const { topics } = useContext(ForumContext);
+    const { t } = useTranslation();
 
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedSubject, setSelectedSubject] = useState('all');
     const [subjects, setSubjects] = useState([]);
 
-    useEffect(() => { setSubjects(getAllSubjects(topics)) },[topics]);
+    useEffect(() => { setSubjects(getAllSubjects(topics)) }, [topics]);
 
     function getAllSubjects(topicsArray) {
         const subjectsSet = [];
@@ -68,8 +70,11 @@ export const Forum = () => {
                         value={selectedSubject}
                         onChange={handleSubjectChange}
                     >
+                        <option key={0} value = "all">
+                            {t("AllSubjectsOption")}
+                        </option>
                         {subjects?.map((subject, index) => (
-                            <option key={index} value={subject.toLowerCase()}>
+                            <option key={index + 1} value={subject.toLowerCase()}>
                                 {subject}
                             </option>
                         ))}

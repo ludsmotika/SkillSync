@@ -1,4 +1,4 @@
-# [Skill Sync] 
+# [Skill Sync](https://skillsync-fd0a1.web.app/)
 
 <img src="logo.png" alt="logo.png" height="300" />
 
